@@ -12,38 +12,79 @@
   </nav>
 
   <div id="hero-bg" class="relative w-full h-96 overflow-hidden transition-all duration-500">
-    <img id="hero" src="{% static 'images/bg-2.jpeg' %}" class="absolute top-0 left-0 w-full h-full object-cover transition-all duration-500" />
-    <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">Welcome to Mike Travels</h1>
+    <img id="hero" src="{% static 'images/bg-2.jpeg' %}" class="absolute top-0 left-0 w-full h-screen object-cover transition-all duration-500" />
+    <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">World beyound your eyes</h1>
   </div>
+  
 
   <section id="service" class="min-h-screen bg-gray-800 text-white flex items-center justify-center px-4">
-    <div class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto mb-12 -rotate-8" data-aos="fade-right">
       <img src="{% static 'images/bg1.jpeg' %}" alt="Image" class="w-full h-auto rounded-lg shadow-lg" />
     </div>
-    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-left">
       <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; /* default large size */
            line-height: 1.2;">Explore Our Destinations</h2>
 
       <p class="mb-12 text-gray-200" style="font-size: 24px; /* default size */
           line-height: 1.5;">From misty mountains to sun-kissed beaches, immerse yourself in the world's most breathtaking locations. Let nature guide your journey.</p>
     </div>
-    
   </section>
 
-  <section id ="activity" class="min-h-screen bg-gray-700 text-white flex items-center justify-center px-4">
-    <div class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
+  <section id="activity-section" class="min-h-screen bg-gray-700 text-white flex flex-col items-center justify-center px-4 py-12">
+    <!-- Hero Image / Banner -->
+    <div class="max-w-6xl w-full mb-12" data-aos="fade-up">
       <img src="{% static 'images/bg3.jpeg' %}" alt="Image" class="w-full h-auto rounded-lg shadow-lg" />
     </div>
-    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
-      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; /* default large size */
-           line-height: 1.2;">Adventure Awaits</h2>
 
-      <p class="mb-12 text-gray-200" style="font-size: 24px; /* default size */
-          line-height: 1.5;">Dive into thrilling activities that get your heart racing and your spirit soaring. From hiking to diving, adventure is just a booking away.</p>
+    <!-- Title & Description -->
+    <div class="max-w-6xl text-center mb-8" data-aos="fade-up">
+      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; line-height: 1.2;">Adventure Awaits</h2>
+      <p class="mb-12 text-gray-200" style="font-size: 24px; line-height: 1.5;">Dive into thrilling activities that get your heart racing and your spirit soaring. From hiking to diving, adventure is just a booking away.</p>
     </div>
-    <div id="activity" class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
-        </div>
 
+    <!-- Filter Buttons -->
+    <div class="flex justify-center space-x-4 mb-12 z-50" data-aos="fade-up">
+      <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Adventure">Adventure</button>
+      <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Water Sports">Water Sports</button>
+      <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Wildlife">Wildlife</button>
+      <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Cultural">Cultural</button>
+    </div>
+
+    <!-- Activity Cards Container -->
+    <div id="activity-container" class="max-w-6xl w-full grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+      <!-- Activity cards will be injected here by JavaScript -->
+    </div>
+  </section>
+
+  <section id="room-section" class="bg-gray-800 text-white px-4 py-12 overflow-hidden relative">
+    <div>
+      <h2 class="mb-6 font-semibold text-center text-gray-50" style="font-size: 72px; line-height: 1.2;">Our Rooms</h2>
+      <p class="mb-12 text-center text-gray-200" style="font-size: 24px; line-height: 1.5;">Discover our range of comfortable and stylish rooms designed to make your stay unforgettable.</p>
+    </div>
+    <div class="max-w-6xl mx-auto" id="room-container"></div>
+  </section>
+
+  <section id="testemonials" class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4 py-12">
+    <div class="max-w-6xl text-center mb-8" data-aos="fade-up">
+      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; line-height: 1.2;">What Our Travelers Say</h2>
+      <p class="mb-12 text-gray-200" style="font-size: 24px; line-height: 1.5;">Hear from our satisfied customers who have experienced unforgettable journeys with Mike Travels.</p>
+    </div>
+
+  <div class="flex flex-col lg:flex-row max-w-6xl w-full gap-8">
+      <div class="lg:w-1/3 mb-8 lg:mb-0 flex flex-col items-center" id="main-testimonial">
+      <!-- This will be populated dynamically -->
+    </div>
+
+    <!-- Right Side: All thumbnails -->
+     <div class="flex flex-col items-center">
+    <div class="lg:w-2/3 w-full flex flex-wrap gap-4 justify-center" id="testimonial-thumbs">
+      <!-- Thumbnails populated dynamically -->
+    </div>
+    <p>
+      <em class="text-gray-400 text-sm mt-4">Click on a thumbnail to read the full testimonial.</em>
+    </p>
+  </div>
+  </div>
   </section>
 
   <script>
@@ -92,52 +133,254 @@
         serviceSection.scrollIntoView({ behavior: 'smooth' })
       }
     })
+    
+    const activities = {
+      Adventure: [
+        { image: "{% static 'images/activity1.jpeg' %}", title: 'Hiking the Alps', description: 'Experience the breathtaking views and challenging trails of the Alpine mountains.' },
+        { image: "{% static 'images/activity2.jpeg' %}", title: 'Rock Climbing in Yosemite', description: "Challenge yourself on some of the world's most famous climbing routes." },
+        { image: "{% static 'images/activity3.jpeg' %}", title: 'Kayaking in Norway', description: 'Paddle through fjords and enjoy the serene waters surrounded by mountains.' },
+        { image: "{% static 'images/activity4.jpeg' %}", title: 'Desert Safari in Dubai', description: 'Feel the thrill of dune bashing and camel rides in the golden desert.' }
+      ],
+      'Water Sports': [
+        { image: "{% static 'images/activity5.jpeg' %}", title: 'Scuba Diving in the Maldives', description: 'Explore the vibrant underwater world and coral reefs of the Maldives.' },
+        { image: "{% static 'images/activity6.jpeg' %}", title: 'Surfing in Bali', description: 'Ride the waves at one of the most famous surfing destinations.' },
+        { image: "{% static 'images/activity7.jpeg' %}", title: 'Snorkeling in Thailand', description: 'Discover colorful fish and clear waters in tropical paradises.' },
+        { image: "{% static 'images/activity8.jpeg' %}", title: 'Jet Skiing in Miami', description: 'Experience adrenaline on the waves of the sunny coast.' }
+      ],
+      Wildlife: [
+        { image: "{% static 'images/activity9.jpeg' %}", title: 'Safari in Kenya', description: 'Witness the majestic wildlife and stunning landscapes of the African savannah.' },
+        { image: "{% static 'images/activity10.jpeg' %}", title: 'Bird Watching in Costa Rica', description: 'Spot exotic birds in lush rainforests.' },
+        { image: "{% static 'images/activity11.jpeg' %}", title: 'Elephant Sanctuary in Thailand', description: 'Interact with gentle giants responsibly.' },
+        { image: "{% static 'images/activity12.jpeg' %}", title: 'Penguin Tour in Antarctica', description: 'Get close to the amazing wildlife of the frozen continent.' }
+      ],
+      Cultural: [
+        { image: "{% static 'images/activity13.jpeg' %}", title: 'Cultural Tour in Japan', description: 'Immerse yourself in the rich traditions and modern wonders of Japan.' },
+        { image: "{% static 'images/activity14.jpeg' %}", title: 'Historic Sites in Rome', description: 'Walk through ancient ruins and experience history firsthand.' },
+        { image: "{% static 'images/activity15.jpeg' %}", title: 'Cooking Classes in Italy', description: 'Learn authentic Italian recipes from local chefs.' },
+        { image: "{% static 'images/activity16.jpeg' %}", title: 'Festivals in India', description: 'Celebrate vibrant festivals and traditions across India.' }
+      ]
+    }
+    
+    function renderActivities(type) {
+      const container = document.getElementById('activity-container')
+      container.innerHTML = '' // clear previous content
+    
+      const items = activities[type] || []
+      items.forEach((activity) => {
+        const card = document.createElement('div')
+        card.classList.add('bg-gray-800', 'rounded-lg', 'shadow-lg', 'p-4', 'text-left', 'transition-transform', 'duration-300', 'hover:scale-105')
+        card.setAttribute('data-aos', 'fade-up')
+    
+        const img = document.createElement('img')
+        img.src = activity.image
+        img.alt = activity.title
+        img.classList.add('w-full', 'h-48', 'object-cover', 'rounded-md', 'mb-4')
+    
+        const title = document.createElement('h3')
+        title.textContent = activity.title
+        title.classList.add('text-xl', 'font-semibold', 'text-gray-50', 'mb-2')
+    
+        const desc = document.createElement('p')
+        desc.textContent = activity.description
+        desc.classList.add('text-gray-200', 'text-sm')
+    
+        card.appendChild(img)
+        card.appendChild(title)
+        card.appendChild(desc)
+    
+        container.appendChild(card)
+      })
+    }
+    
+    // Initial load (show first category)
+    renderActivities('Adventure')
+    
+    // Add button event listeners
+    document.querySelectorAll('.filter-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const type = button.getAttribute('data-type')
+        renderActivities(type)
+      })
+    })
+    
+    const roomsData = [
+      {
+        name: 'Deluxe Room',
+        description: 'Experience the epitome of comfort and style in our meticulously designed rooms, tailored to provide a serene retreat after your adventures.',
+        main_image: "{% static 'images/room1-main.jpeg' %}",
+        small_images: ["{% static 'images/room1-1.jpeg' %}", "{% static 'images/room1-2.jpeg' %}", "{% static 'images/room1-3.jpeg' %}"]
+      },
+      {
+        name: 'Suite Room',
+        description: 'Spacious suites with a private balcony and stunning views, perfect for a luxurious getaway.',
+        main_image: "{% static 'images/room2-main.jpeg' %}",
+        small_images: ["{% static 'images/room2-1.jpeg' %}", "{% static 'images/room2-2.jpeg' %}", "{% static 'images/room2-3.jpeg' %}"]
+      },
+      {
+        name: 'Family Room',
+        description: 'Designed for families, these rooms offer comfort and space for everyone to enjoy a relaxing stay.',
+        main_image: "{% static 'images/room3-main.jpeg' %}",
+        small_images: ["{% static 'images/room3-1.jpeg' %}", "{% static 'images/room3-2.jpeg' %}", "{% static 'images/room3-3.jpeg' %}"]
+      },
+      {
+        name: 'Standard Room',
+        description: 'Cozy and functional rooms with modern amenities for a pleasant stay at an affordable price.',
+        main_image: "{% static 'images/room4-main.jpeg' %}",
+        small_images: ["{% static 'images/room4-1.jpeg' %}", "{% static 'images/room4-2.jpeg' %}", "{% static 'images/room4-3.jpeg' %}"]
+      }
+    ]
+    
+    const container = document.getElementById('room-container')
+    
+    let currentIndex = 0
+    
+    function showRoom(index) {
+      container.innerHTML = '' // clear previous room
+      const room = roomsData[index]
+    
+      const roomDiv = document.createElement('div')
+      roomDiv.classList.add('room-card', 'flex', 'flex-col', 'lg:flex-row', 'mb-12', 'items-center', 'space-x-6', 'animate-slide-in')
+    
+      // Main image
+      const mainImg = document.createElement('img')
+      mainImg.src = room.main_image
+      mainImg.alt = room.name
+      mainImg.classList.add('w-full', 'lg:w-2/3', 'rounded-lg', 'shadow-lg', 'mb-4', 'lg:mb-0')
+    
+      // Info & small images
+      const infoDiv = document.createElement('div')
+      infoDiv.classList.add('flex', 'flex-col', 'space-y-2')
+    
+      const title = document.createElement('h3')
+      title.textContent = room.name
+      title.classList.add('text-2xl', 'font-semibold', 'text-gray-50')
+    
+      const desc = document.createElement('p')
+      desc.textContent = room.description
+      desc.classList.add('text-gray-200')
+    
+      const thumbsDiv = document.createElement('div')
+      thumbsDiv.classList.add('flex', 'space-x-2', 'mt-4')
+      room.small_images.forEach((img) => {
+        const thumb = document.createElement('img')
+        thumb.src = img
+        thumb.alt = room.name
+        thumb.classList.add('w-20', 'h-20', 'object-cover', 'rounded-md', 'shadow-md', 'transform', 'transition-transform', 'hover:scale-105', 'animate-slide-in')
+        thumbsDiv.appendChild(thumb)
+      })
+    
+      infoDiv.appendChild(title)
+      infoDiv.appendChild(desc)
+      infoDiv.appendChild(thumbsDiv)
+    
+      roomDiv.appendChild(mainImg)
+      roomDiv.appendChild(infoDiv)
+    
+      container.appendChild(roomDiv)
+    }
+    
+    // CSS animation for "from top" fade
+    const style = document.createElement('style')
+    style.textContent = `
+        @keyframes slideFromTop {
+          0% { opacity: 0; transform: translateY(-50px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-in {
+          animation: slideFromTop 1s ease forwards;
+        }
+        `
+    document.head.appendChild(style)
+    
+    // Start infinite loop
+    showRoom(currentIndex)
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % roomsData.length
+      showRoom(currentIndex)
+    }, 5000) // change every 2 seconds
 
-    const activiy_data=[{
-        image: "{% static 'images/activity1.jpeg' %}",
-        title: "Hiking the Alps",
-        description: "Experience the breathtaking views and challenging trails of the Alpine mountains."
-    },{
-        image: "{% static 'images/activity2.jpeg' %}",
-        title: "Scuba Diving in the Maldives",
-        description: "Explore the vibrant underwater world and coral reefs of the Maldives."
-    },{
-        image: "{% static 'images/activity3.jpeg' %}",
-        title: "Safari in Kenya",
-        description: "Witness the majestic wildlife and stunning landscapes of the African savannah."
-    },{
-        image: "{% static 'images/activity4.jpeg' %}",
-        title: "Cultural Tour in Japan",
-        description: "Immerse yourself in the rich traditions and modern wonders of Japan."
-    }]; 
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const activitySection = document.getElementById('activity');
-        activiy_data.forEach(activity => {
-            const activityDiv = document.createElement('div');
-            activityDiv.classList.add('mb-8', 'p-4', 'bg-gray-800', 'rounded-lg', 'shadow-lg', 'text-left', 'max-w-3xl', 'mx-auto');
-            activityDiv.setAttribute('data-aos', 'fade-up');
-    
-            const img = document.createElement('img');
-            img.src = activity.image;
-            img.alt = activity.title;
-            img.classList.add('w-full', 'h-auto', 'rounded-lg', 'mb-4');
-    
-            const title = document.createElement('h3');
-            title.classList.add('text-2xl', 'font-semibold', 'mb-2', 'text-gray-50');
-            title.textContent = activity.title;
-    
-            const description = document.createElement('p');
-            description.classList.add('text-gray-200');
-            description.textContent = activity.description;
-    
-            activityDiv.appendChild(img);
-            activityDiv.appendChild(title);
-            activityDiv.appendChild(description);
-    
-            activitySection.appendChild(activityDiv);
-        });
-      
-    });
+    const testimonials = [
+      {
+        name: 'John Doe',
+        location: 'New York, USA',
+        image: "{% static 'images/user1.jpeg' %}",
+        text: 'Mike Travels made my vacation unforgettable! The destinations were breathtaking and the activities were thrilling. Highly recommend!'
+      },
+      {
+        name: 'Jane Smith',
+        location: 'London, UK',
+        image: "{% static 'images/user2.jpeg' %}",
+        text: 'A seamless experience from start to finish. The team at Mike Travels took care of everything, allowing me to relax and enjoy my trip.'
+      },
+      {
+        name: 'Carlos Rodriguez',
+        location: 'Madrid, Spain',
+        image: "{% static 'images/user3.jpeg' %}",
+        text: 'The cultural tours were enlightening and the guides were knowledgeable. I learned so much about the places I visited.'
+      },
+      {
+        name: 'Aisha Khan',
+        location: 'Dubai, UAE',
+        image: "{% static 'images/user4.jpeg' %}",
+        text: 'Adventure activities were top-notch! From hiking to water sports, every experience was exhilarating and well-organized.'
+      },
+
+
+
+      {
+        name: 'Liu Wei',
+        location: 'Beijing, China',
+        image: "{% static 'images/user5.jpeg' %}",
+        text: 'The wildlife tours were a highlight of my trip. Seeing animals in their natural habitat was truly magical.'
+      }
+      ,
+      {
+        name: 'Emma Johnson',
+        location: 'Sydney, Australia',
+        image: "{% static 'images/user6.jpeg' %}",
+        text: 'The accommodations were luxurious and comfortable. I felt pampered throughout my stay.'
+      },
+    ]
+
+    const mainTestimonial = document.getElementById('main-testimonial')
+    const thumbsContainer = document.getElementById('testimonial-thumbs')
+    let activeIndex = 0
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTestimonial(activeIndex)
+      renderThumbnails()
+    })
+    function renderTestimonial(index) {
+      const testimonial = testimonials[index]
+      mainTestimonial.innerHTML = `
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center " >
+          <img src="${testimonial.image}" alt="${testimonial.name}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+          <h3 class="text-xl font-semibold text-gray-50 mb-2">${testimonial.name}</h3>
+          <p class="text-sm text-gray-400 mb-4">${testimonial.location}</p>
+          <p class="text-gray-200 italic">"${testimonial.text}"</p>
+        </div>
+      `
+    }
+    function renderThumbnails() {
+      testimonials.forEach((testimonial, index) => {
+        const thumb = document.createElement('div')
+        thumb.classList.add('w-24', 'h-24', 'rounded-full', 'overflow-hidden', 'cursor-pointer', 'border-4', index === activeIndex ? 'border-emerald-500' : 'border-transparent', 'transition-colors', 'duration-300')
+        thumb.setAttribute('data-aos', 'fade-up')
+        thumb.innerHTML = `<img src="${testimonial.image}" alt="${testimonial.name}" class="w-full h-full object-cover" />`
+        thumb.addEventListener('click', () => {
+          activeIndex = index
+          renderTestimonial(activeIndex)
+          // Update borders
+          document.querySelectorAll('#testimonial-thumbs div').forEach((d, i) => {
+            d.classList.toggle('border-emerald-500', i === activeIndex)
+            d.classList.toggle('border-transparent', i !== activeIndex)
+          })
+        })
+        thumbsContainer.appendChild(thumb)
+      })
+    }
+
+
   </script>
 {% endblock %}
