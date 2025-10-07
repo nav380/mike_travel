@@ -13,22 +13,80 @@
 
   <div id="hero-bg" class="relative w-full h-96 overflow-hidden transition-all duration-500">
     <img id="hero" src="{% static 'images/bg-2.jpeg' %}" class="absolute top-0 left-0 w-full h-screen object-cover transition-all duration-500" />
-    <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">World beyound your eyes</h1>
+    <h1 class="absolute top-24 inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center px-4">
+  "World Beyond Your Eyes"
+</h1>
+
+<p class="absolute inset-x-0 bottom-24 text-center text-white text-lg md:text-2xl lg:text-3xl px-4">
+  "Embark on journeys that awaken your soul and ignite your spirit. Discover hidden gems, endless horizons, and unforgettable experiences."
+</p>
+
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent">
+      <form class="relative w-full h-full flex items-center justify-center" action="" method="POST">
+        {% csrf_token %}
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 rounded-full shadow-lg flex items-center px-4 py-2 space-x-4 w-11/12 ">
+          <input  name="from-date" type="date" placeholder="date" class="flex-1 bg-transparent outline-none text-gray-800 placeholder-gray-500" />
+          <input name="to-date" type="date" placeholder="to" class="flex-1 bg-transparent outline-none text-gray-800 placeholder-gray-500" />
+          <input name="Destination" type="text" placeholder="where to?" class="flex-1 bg-transparent outline-none text-gray-800 placeholder-gray-500" />
+          <input name="adults" type="text" placeholder="adults" class="flex-1 bg-transparent outline-none text-gray-800 placeholder-gray-500" />
+          <input name="children" type="text" placeholder="children" class="flex-1 bg-transparent outline-none text-gray-800 placeholder-gray-500" />
+          
+        </div>
+        <button type="submit" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-all">submit</button>
+      </form>
+    </div>
+
   </div>
   
 
-  <section id="service" class="min-h-screen bg-gray-800 text-white flex items-center justify-center px-4">
-    <div class="max-w-6xl mx-auto mb-12 -rotate-8" data-aos="fade-right">
-      <img src="{% static 'images/bg1.jpeg' %}" alt="Image" class="w-full h-auto rounded-lg shadow-lg" />
+ <section id="service" class="relative min-h-screen bg-gray-900 text-white flex flex-col lg:flex-row items-center justify-center px-6 py-12 overflow-hidden">
+  
+  <!-- Left: Tilted, decreasing-width image -->
+  <div 
+    class="relative w-full lg:w-1/2 transform -rotate-6 origin-top-left" 
+    data-aos="fade-right"
+  >
+    <div class="relative">
+      <!-- Main image -->
+      <img 
+        src="{% static 'images/bg1.jpeg' %}" 
+        alt="Travel Destination" 
+        class="rounded-3xl shadow-2xl w-[90%] h-auto object-cover transform hover:rotate-0 transition-transform duration-500 ease-in-out"
+      />
+      
+      <!-- Gradient overlay (to simulate decreasing width/fade-out to right) -->
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/40 to-gray-900"></div>
     </div>
-    <div class="max-w-6xl mx-auto text-center" data-aos="fade-left">
-      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; /* default large size */
-           line-height: 1.2;">Explore Our Destinations</h2>
+  </div>
 
-      <p class="mb-12 text-gray-200" style="font-size: 24px; /* default size */
-          line-height: 1.5;">From misty mountains to sun-kissed beaches, immerse yourself in the world's most breathtaking locations. Let nature guide your journey.</p>
-    </div>
-  </section>
+  <!-- Right: Overlapping text content -->
+  <div 
+    class="relative z-10 lg:-ml-32 mt-8 lg:mt-0 lg:w-1/2 text-center lg:text-left" 
+    data-aos="fade-left"
+  >
+    <h2 
+      class="text-5xl lg:text-7xl font-bold mb-6 text-gray-50 leading-tight drop-shadow-lg"
+    >
+      Explore Our Destinations
+    </h2>
+
+    <p 
+      class="text-lg lg:text-2xl text-gray-300 max-w-xl leading-relaxed"
+    >
+      From misty mountains to sun-kissed beaches, immerse yourself in the world’s most breathtaking locations. Let nature guide your journey.
+    </p>
+
+    <button 
+      class="mt-8 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 transition-all rounded-full text-lg font-semibold shadow-lg"
+    >
+      Start Exploring
+    </button>
+  </div>
+</section>
+
+
 
   <section id="activity-section" class="min-h-screen bg-gray-700 text-white flex flex-col items-center justify-center px-4 py-12">
     <!-- Hero Image / Banner -->
@@ -43,7 +101,7 @@
     </div>
 
     <!-- Filter Buttons -->
-    <div class="flex justify-center space-x-4 mb-12 z-50" data-aos="fade-up">
+    <div class="flex justify-center space-x-4 mb-12 " data-aos="fade-up">
       <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Adventure">Adventure</button>
       <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Water Sports">Water Sports</button>
       <button class="filter-btn px-4 py-2 bg-emerald-600 text-white rounded-full" data-type="Wildlife">Wildlife</button>
@@ -61,7 +119,9 @@
       <h2 class="mb-6 font-semibold text-center text-gray-50" style="font-size: 72px; line-height: 1.2;">Our Rooms</h2>
       <p class="mb-12 text-center text-gray-200" style="font-size: 24px; line-height: 1.5;">Discover our range of comfortable and stylish rooms designed to make your stay unforgettable.</p>
     </div>
-    <div class="max-w-6xl mx-auto" id="room-container"></div>
+    <div class="max-w-6xl mx-auto" id="room-container">
+
+    </div>
   </section>
 
   <section id="testemonials" class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4 py-12">
@@ -85,6 +145,37 @@
     </p>
   </div>
   </div>
+  </section>
+
+  <section id="contact" class="min-h-screen bg-gray-700 text-white flex flex-col items-center justify-center px-4 py-12">
+    <div class="max-w-6xl text-center mb-8" data-aos="fade-up">
+      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; line-height: 1.2;">Get in Touch</h2>
+      <p class="mb-12 text-gray-200" style="font-size: 24px; line-height: 1.5;">Have questions or need assistance? Our team is here to help you plan your perfect trip.</p>
+    </div>
+
+    <form class="w-full max-w-lg bg-gray-800 p-8 rounded-lg shadow-lg" action="contact/" method="POST">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label class="block text-gray-300 text-sm font-bold mb-2" for="name">Name</label>
+        <input class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-emerald-500" id="name" name="name" type="text" placeholder="Your Name" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-300 text-sm font-bold mb-2" for="email">Email</label>
+        <input class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-emerald-500" id="email" name="email" type="email" placeholder="Your Email" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-300 text-sm font-bold mb-2" for="Phone">Phone no.</label>
+        <input class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-emerald-500" id="phone" name="phone" type="number" placeholder="Subject" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-300 text-sm font-bold mb-2" for="message">Message</label>
+        <textarea class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-emerald-500" id="message" name="message" rows="4" placeholder="Your Message"></textarea>       
+      </div>
+      <div class="flex items-center justify-center">
+        <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Send Message</button>
+      </div>
+    </form>
   </section>
 
   <script>
@@ -122,7 +213,7 @@
         title.style.fontSize = '1rem'
       } else {
         nav.style.height = '96px'
-        nav.style.backgroundColor = '#93d3f8ff'
+        nav.style.backgroundColor = '#5957f1ff'
         logo.style.height = '48px'
         logo.style.width = '48px'
         title.style.fontSize = '1.5rem'
@@ -175,6 +266,8 @@
         img.src = activity.image
         img.alt = activity.title
         img.classList.add('w-full', 'h-48', 'object-cover', 'rounded-md', 'mb-4')
+
+        
     
         const title = document.createElement('h3')
         title.textContent = activity.title
@@ -204,80 +297,140 @@
     })
     
     const roomsData = [
-      {
-        name: 'Deluxe Room',
-        description: 'Experience the epitome of comfort and style in our meticulously designed rooms, tailored to provide a serene retreat after your adventures.',
-        main_image: "{% static 'images/room1-main.jpeg' %}",
-        small_images: ["{% static 'images/room1-1.jpeg' %}", "{% static 'images/room1-2.jpeg' %}", "{% static 'images/room1-3.jpeg' %}"]
-      },
-      {
-        name: 'Suite Room',
-        description: 'Spacious suites with a private balcony and stunning views, perfect for a luxurious getaway.',
-        main_image: "{% static 'images/room2-main.jpeg' %}",
-        small_images: ["{% static 'images/room2-1.jpeg' %}", "{% static 'images/room2-2.jpeg' %}", "{% static 'images/room2-3.jpeg' %}"]
-      },
-      {
-        name: 'Family Room',
-        description: 'Designed for families, these rooms offer comfort and space for everyone to enjoy a relaxing stay.',
-        main_image: "{% static 'images/room3-main.jpeg' %}",
-        small_images: ["{% static 'images/room3-1.jpeg' %}", "{% static 'images/room3-2.jpeg' %}", "{% static 'images/room3-3.jpeg' %}"]
-      },
-      {
-        name: 'Standard Room',
-        description: 'Cozy and functional rooms with modern amenities for a pleasant stay at an affordable price.',
-        main_image: "{% static 'images/room4-main.jpeg' %}",
-        small_images: ["{% static 'images/room4-1.jpeg' %}", "{% static 'images/room4-2.jpeg' %}", "{% static 'images/room4-3.jpeg' %}"]
-      }
-    ]
-    
-    const container = document.getElementById('room-container')
-    
-    let currentIndex = 0
-    
-    function showRoom(index) {
-      container.innerHTML = '' // clear previous room
-      const room = roomsData[index]
-    
-      const roomDiv = document.createElement('div')
-      roomDiv.classList.add('room-card', 'flex', 'flex-col', 'lg:flex-row', 'mb-12', 'items-center', 'space-x-6', 'animate-slide-in')
-    
-      // Main image
-      const mainImg = document.createElement('img')
-      mainImg.src = room.main_image
-      mainImg.alt = room.name
-      mainImg.classList.add('w-full', 'lg:w-2/3', 'rounded-lg', 'shadow-lg', 'mb-4', 'lg:mb-0')
-    
-      // Info & small images
-      const infoDiv = document.createElement('div')
-      infoDiv.classList.add('flex', 'flex-col', 'space-y-2')
-    
-      const title = document.createElement('h3')
-      title.textContent = room.name
-      title.classList.add('text-2xl', 'font-semibold', 'text-gray-50')
-    
-      const desc = document.createElement('p')
-      desc.textContent = room.description
-      desc.classList.add('text-gray-200')
-    
-      const thumbsDiv = document.createElement('div')
-      thumbsDiv.classList.add('flex', 'space-x-2', 'mt-4')
-      room.small_images.forEach((img) => {
-        const thumb = document.createElement('img')
-        thumb.src = img
-        thumb.alt = room.name
-        thumb.classList.add('w-20', 'h-20', 'object-cover', 'rounded-md', 'shadow-md', 'transform', 'transition-transform', 'hover:scale-105', 'animate-slide-in')
-        thumbsDiv.appendChild(thumb)
-      })
-    
-      infoDiv.appendChild(title)
-      infoDiv.appendChild(desc)
-      infoDiv.appendChild(thumbsDiv)
-    
-      roomDiv.appendChild(mainImg)
-      roomDiv.appendChild(infoDiv)
-    
-      container.appendChild(roomDiv)
-    }
+    {
+      name: 'Deluxe Room',
+      description:
+        'Experience the epitome of comfort and style in our meticulously designed rooms, tailored to provide a serene retreat after your adventures.',
+      main_image: "{% static 'images/room1.jpeg' %}",
+      small_images: [
+        "{% static 'images/room1-1.jpeg' %}",
+        "{% static 'images/room1-2.jpeg' %}",
+        "{% static 'images/room1-3.jpeg' %}",
+      ],
+      area: '32 sqm',
+      bed: '1 King Bed or 2 Twin Beds',
+      view: 'City View',
+      wifi: 'Free Wi-Fi',
+      breakfast: 'Complimentary Breakfast',
+    },
+    {
+      name: 'Suite Room',
+      description:
+        'Spacious suites with a private balcony and stunning views, perfect for a luxurious getaway.',
+      main_image: "{% static 'images/room2-main.jpeg' %}",
+      small_images: [
+        "{% static 'images/room2-1.jpeg' %}",
+        "{% static 'images/room2-2.jpeg' %}",
+        "{% static 'images/room2-3.jpeg' %}",
+      ],
+      area: '40 sqm',
+      bed: '1 King Bed',
+      view: 'Sea View',
+      wifi: 'Free Wi-Fi',
+      breakfast: 'Complimentary Breakfast',
+    },
+    {
+      name: 'Family Room',
+      description:
+        'Designed for families, these rooms offer comfort and space for everyone to enjoy a relaxing stay.',
+      main_image: "{% static 'images/room3-main.jpeg' %}",
+      small_images: [
+        "{% static 'images/room3-1.jpeg' %}",
+        "{% static 'images/room3-2.jpeg' %}",
+        "{% static 'images/room3-3.jpeg' %}",
+      ],
+      area: '50 sqm',
+      bed: '2 King Beds',
+      view: 'Garden View',
+      wifi: 'Free Wi-Fi',
+      breakfast: 'Complimentary Breakfast',
+    },
+    {
+      name: 'Standard Room',
+      description:
+        'Cozy and functional rooms with modern amenities for a pleasant stay at an affordable price.',
+      main_image: "{% static 'images/room4-main.jpeg' %}",
+      small_images: [
+        "{% static 'images/room4-1.jpeg' %}",
+        "{% static 'images/room4-2.jpeg' %}",
+        "{% static 'images/room4-3.jpeg' %}",
+      ],
+      area: '28 sqm',
+      bed: '1 Queen Bed',
+      view: 'City View',
+      wifi: 'Free Wi-Fi',
+      breakfast: 'Complimentary Breakfast',
+    },
+  ];
+
+  const container = document.getElementById('room-container');
+  let currentIndex = 0;
+
+  function showRoom(index) {
+    container.innerHTML = ''; // Clear previous room
+    const room = roomsData[index];
+
+    const roomDiv = document.createElement('div');
+    roomDiv.className =
+      'room-card flex flex-col lg:flex-row mb-12 items-center justify-between space-x-6 bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform  hover:scale-105 hover:rotate-4 transition-all duration-500 ease-in-out';
+
+    // Main image
+    const mainImg = document.createElement('img');
+    mainImg.src = room.main_image;
+    mainImg.alt = room.name;
+    mainImg.className =
+      'w-full lg:w-2/3 h-96 object-cover rounded-lg shadow-lg mb-4 lg:mb-0';
+
+    // Info section
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'flex flex-col text-gray-100 p-6 lg:w-1/2';
+
+    const title = document.createElement('h3');
+    title.textContent = room.name;
+    title.className = 'text-3xl font-bold mb-2 text-emerald-400';
+
+    const desc = document.createElement('p');
+    desc.textContent = room.description;
+    desc.className = 'text-gray-300 mb-4';
+
+    const details = document.createElement('ul');
+    details.className = 'text-sm text-gray-400 space-y-1 mb-4';
+    details.innerHTML = `
+      <li><strong>Area:</strong> ${room.area}</li>
+      <li><strong>Bed:</strong> ${room.bed}</li>
+      <li><strong>View:</strong> ${room.view}</li>
+      <li><strong>Wi-Fi:</strong> ${room.wifi}</li>
+      <li><strong>Breakfast:</strong> ${room.breakfast}</li>
+    `;
+
+    // Small images
+    const thumbsDiv = document.createElement('div');
+    thumbsDiv.className = 'flex space-x-2 mt-2';
+    room.small_images.forEach((img) => {
+      const thumb = document.createElement('img');
+      thumb.src = img;
+      thumb.alt = room.name;
+      thumb.className =
+        'w-20 h-20 object-cover rounded-md shadow-md transform transition-transform hover:scale-105 cursor-pointer';
+      thumb.addEventListener('click', () => {
+        mainImg.src = img;
+      });
+      thumbsDiv.appendChild(thumb);
+    });
+
+    infoDiv.appendChild(title);
+    infoDiv.appendChild(desc);
+    infoDiv.appendChild(details);
+    infoDiv.appendChild(thumbsDiv);
+
+    roomDiv.appendChild(mainImg);
+    roomDiv.appendChild(infoDiv);
+
+    container.appendChild(roomDiv);
+  }
+
+  // Auto show first room
+  showRoom(currentIndex);
     
     // CSS animation for "from top" fade
     const style = document.createElement('style')
@@ -300,11 +453,12 @@
     }, 5000) // change every 2 seconds
 
 
+    // -------- Testimonials Section --------
     const testimonials = [
       {
         name: 'John Doe',
         location: 'New York, USA',
-        image: "{% static 'images/user1.jpeg' %}",
+        image: "{% static 'images/testimonial.jpeg' %}",
         text: 'Mike Travels made my vacation unforgettable! The destinations were breathtaking and the activities were thrilling. Highly recommend!'
       },
       {
@@ -354,12 +508,21 @@
     function renderTestimonial(index) {
       const testimonial = testimonials[index]
       mainTestimonial.innerHTML = `
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center " >
-          <img src="${testimonial.image}" alt="${testimonial.name}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-          <h3 class="text-xl font-semibold text-gray-50 mb-2">${testimonial.name}</h3>
-          <p class="text-sm text-gray-400 mb-4">${testimonial.location}</p>
-          <p class="text-gray-200 italic">"${testimonial.text}"</p>
-        </div>
+       <div
+  class="bg-gray-800 bg-center bg-cover rounded-lg shadow-lg p-6 text-center relative overflow-hidden h-96 w-full"
+  style="background-image: url('${testimonial.image}');"
+>
+  <!-- Dark overlay for readability -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+
+  <!-- Text content -->
+  <div class=" z-10 absolute bottom-0 inset-0 flex flex-col items-center justify-center text-white p-4 pb-0 animate-slide-in">
+    <h3 class="text-xl font-semibold text-gray-50 mb-2">${testimonial.name}</h3>
+    <p class="text-sm text-gray-300 mb-4">${testimonial.location}</p>
+    <p class="text-gray-100 italic">"${testimonial.text}"</p>
+  </div>
+</div>
+
       `
     }
     function renderThumbnails() {

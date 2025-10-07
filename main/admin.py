@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import TravelQuery, contact
+
+admin.site.register(TravelQuery)
+admin.site.register(contact)
