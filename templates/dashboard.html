@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block content %}
+  <nav id="nav" class="flex items-center justify-between bg-gray-900 text-white p-4 h-24 transition-all duration-500">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-12 w-12 transition-all duration-500" />
+    <span class="text-2xl font-bold transition-all duration-500">Mike Travels</span>
+  </nav>
+
+  <div id="hero-bg" class="relative w-full h-96 overflow-hidden transition-all duration-500">
+    <img id="hero" src="{% static 'images/bg-2.jpeg' %}" class="absolute top-0 left-0 w-full h-full object-cover transition-all duration-500" />
+    <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">Welcome to Mike Travels</h1>
+  </div>
+
+  <section id="service" class="min-h-screen bg-gray-800 text-white flex items-center justify-center px-4">
+    <div class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
+      <img src="{% static 'images/bg1.jpeg' %}" alt="Image" class="w-full h-auto rounded-lg shadow-lg" />
+    </div>
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; /* default large size */
+           line-height: 1.2;">Explore Our Destinations</h2>
+
+      <p class="mb-12 text-gray-200" style="font-size: 24px; /* default size */
+          line-height: 1.5;">From misty mountains to sun-kissed beaches, immerse yourself in the world's most breathtaking locations. Let nature guide your journey.</p>
+    </div>
+    
+  </section>
+
+  <section id ="activity" class="min-h-screen bg-gray-700 text-white flex items-center justify-center px-4">
+    <div class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
+      <img src="{% static 'images/bg3.jpeg' %}" alt="Image" class="w-full h-auto rounded-lg shadow-lg" />
+    </div>
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="mb-6 font-semibold text-gray-50" style="font-size: 72px; /* default large size */
+           line-height: 1.2;">Adventure Awaits</h2>
+
+      <p class="mb-12 text-gray-200" style="font-size: 24px; /* default size */
+          line-height: 1.5;">Dive into thrilling activities that get your heart racing and your spirit soaring. From hiking to diving, adventure is just a booking away.</p>
+    </div>
+    <div id="activity" class="max-w-6xl mx-auto mb-12" data-aos="fade-up">
+        </div>
+
+  </section>
+
+  <script>
+    const hero = document.getElementById('hero')
+    const heroBg = document.getElementById('hero-bg')
+    const nav = document.getElementById('nav')
+    const logo = nav.querySelector('img')
+    const title = nav.querySelector('span')
+    const serviceSection = document.getElementById('service')
+    
+    const maxHeroScroll = window.innerHeight // full viewport scroll distance
+    const navShrinkScroll = 10 // navbar effect start
+    
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY
+    
+      // -------- Hero Image Scale & Fade --------
+      const heroPercent = Math.min(scrollY / maxHeroScroll, 1) // 0 → 1
+      const scale = 1 - 0.2 * heroPercent
+      const opacity = 1 - heroPercent
+      hero.style.transform = `scale(${scale})`
+      hero.style.opacity = opacity
+    
+      // -------- HeroBg Shrink --------
+      const heroBgHeight = window.innerHeight * (1 - heroPercent) // shrink from full screen → 0
+      heroBg.style.height = `${heroBgHeight}px`
+    
+      // -------- Navbar Shrink --------
+      if (scrollY > navShrinkScroll) {
+        nav.style.height = '64px'
+        nav.style.backgroundColor = '#111828'
+        nav.style.color = '#d1fae5'
+        logo.style.height = '32px'
+        logo.style.width = '32px'
+        title.style.fontSize = '1rem'
+      } else {
+        nav.style.height = '96px'
+        nav.style.backgroundColor = '#93d3f8ff'
+        logo.style.height = '48px'
+        logo.style.width = '48px'
+        title.style.fontSize = '1.5rem'
+      }
+    
+      // -------- Auto Scroll to #service --------
+      if (scrollY >= maxHeroScroll) {
+        serviceSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    })
+
+    const activiy_data=[{
+        image: "{% static 'images/activity1.jpeg' %}",
+        title: "Hiking the Alps",
+        description: "Experience the breathtaking views and challenging trails of the Alpine mountains."
+    },{
+        image: "{% static 'images/activity2.jpeg' %}",
+        title: "Scuba Diving in the Maldives",
+        description: "Explore the vibrant underwater world and coral reefs of the Maldives."
+    },{
+        image: "{% static 'images/activity3.jpeg' %}",
+        title: "Safari in Kenya",
+        description: "Witness the majestic wildlife and stunning landscapes of the African savannah."
+    },{
+        image: "{% static 'images/activity4.jpeg' %}",
+        title: "Cultural Tour in Japan",
+        description: "Immerse yourself in the rich traditions and modern wonders of Japan."
+    }]; 
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const activitySection = document.getElementById('activity');
+        activiy_data.forEach(activity => {
+            const activityDiv = document.createElement('div');
+            activityDiv.classList.add('mb-8', 'p-4', 'bg-gray-800', 'rounded-lg', 'shadow-lg', 'text-left', 'max-w-3xl', 'mx-auto');
+            activityDiv.setAttribute('data-aos', 'fade-up');
+    
+            const img = document.createElement('img');
+            img.src = activity.image;
+            img.alt = activity.title;
+            img.classList.add('w-full', 'h-auto', 'rounded-lg', 'mb-4');
+    
+            const title = document.createElement('h3');
+            title.classList.add('text-2xl', 'font-semibold', 'mb-2', 'text-gray-50');
+            title.textContent = activity.title;
+    
+            const description = document.createElement('p');
+            description.classList.add('text-gray-200');
+            description.textContent = activity.description;
+    
+            activityDiv.appendChild(img);
+            activityDiv.appendChild(title);
+            activityDiv.appendChild(description);
+    
+            activitySection.appendChild(activityDiv);
+        });
+      
+    });
+  </script>
+{% endblock %}

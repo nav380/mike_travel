@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        My Site
+      {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <nav id="nav" class="flex items-center justify-between p-4 shadow-md h-24 fixed top-0 left-0 w-full z-50 transition-all duration-300" style="background-color: #1895ddff;">
+      <!-- Left Section -->
+      <div class="max-w-40 flex items-center justify-start border-r border-gray-700 px-2">Menu</div>
+
+      <!-- Center Section -->
+      <div class="flex items-center justify-between space-x-6 px-4 border-gray-700 w-full">
+        <!-- Language -->
+        <div class="cursor-pointer hover:text-emerald-400 transition">ENG</div>
+
+        <!-- Logo / Brand -->
+        <div class="text-xl font-bold text-emerald-500">Mike Travels</div>
+
+        <!-- Contact -->
+        <div class="cursor-pointer hover:text-emerald-400 transition">Contact</div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="max-w-40 flex items-center justify-end border-l border-gray-700 px-2">Booking</div>
+    </nav>
+
+    <main class="w-full min-w-full">
+      {% block content %}
+        <!-- Child templates will fill this -->
+      {% endblock %}
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 class="flex items-center text-xl font-bold mb-4">
+              <img src="https://cdn-icons-png.flaticon.com/512/69/69906.png" alt="logo" class="h-8 w-8 text-emerald-400" />
+              <span class="ml-2 text-emerald-400">MIke Travels</span>
+            </h3>
+
+            <p class="text-gray-400 mb-4">Transforming businesses through innovative digital solutions.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+              </li>
+              <li>
+                <a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a>
+              </li>
+              <li>
+                <a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
+              </li>
+              <li>
+                <a href="#team" class="text-gray-400 hover:text-white transition duration-300">Team</a>
+              </li>
+              <li>
+                <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Resources</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQs</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                <span class="text-gray-400">Plot no.15 Sector 22 Dwarka Delhi, New Delhi, Delhi 110075</span>
+              </li>
+              <li>
+                <a href="mailto:support@saviorhires.in" class="flex items-center">
+                  <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                  <span class="text-gray-400">support@saviorhires.in</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+918445734331" class="flex items-center">
+                  <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
+                  <span class="text-gray-400">+91-8445734331</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-4 pt-4 text-center">
+        <p class="text-gray-400">&copy; 2025 SAVIORHIRE. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+  <!-- AOS JS (at the end of body) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // animation duration in ms
+      once: true // whether animation should happen only once
+    })
+  </script>
+</html>
